@@ -1,0 +1,82 @@
+<!--Shamour Campbell 2408412-->
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="stylegloves.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>GOALKEEPER GLOVES</title>
+</head>
+
+<body>
+    <header>GLOVES</header>
+
+    <section>
+        <div class="gloves">
+            <div class="gloves_box">
+            <div class="gloves_card">
+                <div class="gloves_image">
+                    <img src="gaolkeeper gloves.webp">
+                </div>
+                <div class="item_info">
+                    <h2>Football Goalkeeper Gloves</h2>
+                    <h3>$5000.00</h3>
+                </div>
+                <button onclick="addtocart('Football Goalkeeper Gloves', 5000)">ADD TO CART</button>
+            </div>
+            <div class="gloves_card">
+                <div class="gloves_image">
+                    <img src="white keeper gloves.webp">
+                </div>
+                <div class="item_info">
+                    <h2>White Football Goalkeeper Gloves</h2>
+                    <h3>$5000.00</h3>
+                </div>
+                <button onclick="addtocart('White Football Goalkeeper Gloves', 5000)">ADD TO CART</button>
+            </div>
+            <div class="gloves_card">
+                <div class="gloves_image">
+                    <img src="styled gloves.jpg">
+                </div>
+                <div class="item_info">
+                    <h2>Styled Football Goalkeeper Gloves</h2>
+                    <h3>$5000.00</h3>
+                </div>
+                 <button onclick="addtocart('Styled Football Goalkeeper Gloves', 5000)">ADD TO CART</button>
+            </div>
+            <div class="gloves_card">
+                <div class="gloves_image">
+                    <img src="red gloves.webp">
+                </div>
+                <div class="item_info">
+                    <h2>Red Football Goalkeeper Gloves</h2>
+                    <h3>$5000.00</h3>
+                </div>
+                 <button onclick="addtocart('Red Football Goalkeeper Gloves', 5000)">ADD TO CART</button>
+            </div> 
+            </div>
+            
+        </div>
+    </section>
+    <script>
+    function addtocart (name, price) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+     let item = cart.find(product => product.name === name);
+      if (item) {
+        item.quantity += 1;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(name + " added to cart!");
+    }
+</script>
+
+<a href="cart.html" class="cart-icon">
+    <i class="fa-solid fa-cart-shopping" ></i>
+</a>
+
+</body>
+</html>

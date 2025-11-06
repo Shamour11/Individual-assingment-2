@@ -1,0 +1,143 @@
+<!--Shamour Campbell 2408412-->
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="stylejersey.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>JERSEY</title>
+</head>
+
+<body>
+    <header>JERSEYS</header>
+
+    <section>
+        <div class="jersey">
+            <div class="jersey_box">
+            <div class="jersey_card">
+                <div class="jersey_image">
+                    <img src="lfc pic.webp">
+                </div>
+                <div class="item_info">
+                    <h2>liverpool FC Jersey Top</h2>
+                    <h3>$3000.00</h3>
+                </div>
+                 <button onclick="addtocart('liverpool FC Jersey Top', 3000)">ADD TO CART</button>
+            </div>
+            <div class="jersey_card">
+                <div class="jersey_image">
+                    <img src="barca pic.webp">
+                </div>
+                <div class="item_info">
+                    <h2>FC Barcelona Jersey (top)</h2>
+                    <h3>3000.00</h3>
+                </div>
+                <button onclick="addtocart('FC Barcelona Jersey (top)', 3000)">ADD TO CART</button>
+            </div>
+            <div class="jersey_card">
+                <div class="jersey_image">
+                    <img src="liverpool jersey.webp">
+                </div>
+                <div class="item_info">
+                    <h2>liverpool FC Jersey (full set)</h2>
+                    <h3>$7000.00</h3>
+                </div>
+                <button onclick="addtocart('liverpool FC Jersey (full set)', 7000)">ADD TO CART</button>
+            </div>
+            <div class="jersey_card">
+                <div class="jersey_image">
+                    <img src="barca jersey.webp">
+                </div>
+                <div class="item_info">
+                    <h2>FC Barcelona Jersey (full set)</h2>
+                    <h3>$7000.00</h3>
+                </div>
+                <button onclick="addtocart('Barcelona Jersey (full set)', 7000)">ADD TO CART</button>
+            </div>
+            <div class="jersey_card">
+                <div class="jersey_image">
+                    <img src="man city top.jpg">
+                </div>
+                <div class="item_info">
+                    <h2>Man City Jersey (top)</h2>
+                    <h3>$3000.00</h3>
+                </div>
+                <button onclick="addtocart('Man City Jersey (top)', 3000)">ADD TO CART</button>
+            </div>
+             <div class="jersey_card">
+                <div class="jersey_image">
+                    <img src="man city shorts.jpg">
+                </div>
+                <div class="item_info">
+                    <h2>Man City Jersey (shorts)</h2>
+                    <h3>$3000.00</h3>
+                </div>
+                <button onclick="addtocart('Man City Jersey (shorts)', 3000)">ADD TO CART</button>
+            </div>
+             <div class="jersey_card">
+                <div class="jersey_image">
+                    <img src="man city top.jpg">
+                </div>
+                <div class="item_info">
+                    <h2>Man City Jersey (top)</h2>
+                    <h3>$3000.00</h3>
+                </div>
+                <button onclick="addtocart('Man City Jersey (top)', 3000)">ADD TO CART</button>
+            </div>
+             <div class="jersey_card">
+                <div class="jersey_image">
+                    <img src="man united top.jpg">
+                </div>
+                <div class="item_info">
+                    <h2>Man United Jersey (top)</h2>
+                    <h3>$3000.00</h3>
+                </div>
+                <button onclick="addtocart('Man United Jersey (top)', 3000)">ADD TO CART</button>
+            </div>
+             <div class="jersey_card">
+                <div class="jersey_image">
+                    <img src="man united shorts.jpg">
+                </div>
+                <div class="item_info">
+                    <h2>Man United Jersey (shorts)</h2>
+                    <h3>$3000.00</h3>
+                </div>
+                <button onclick="addtocart('Man United Jersey (shorts)', 3000)">ADD TO CART</button>
+            </div>
+             <div class="jersey_card">
+                <div class="jersey_image">
+                    <img src="man united full.jpg">
+                </div>
+                <div class="item_info">
+                    <h2>Man City Jersey (full)</h2>
+                    <h3>$7000.00</h3>
+                </div>
+                <button onclick="addtocart('Man City Jersey (full)', 7000)">ADD TO CART</button>
+            </div>
+            
+            </div>
+        </div>
+    </section>
+    <script>
+    function addtocart (name, price) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+     let item = cart.find(product => product.name === name);
+      if (item) {
+        item.quantity += 1;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(name + " added to cart!");
+    }
+</script>
+
+<a href="cart.html" class="cart-icon">
+    <i class="fa-solid fa-cart-shopping" ></i>
+</a>
+
+</body>
+
+</html>

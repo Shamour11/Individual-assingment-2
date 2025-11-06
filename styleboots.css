@@ -1,0 +1,131 @@
+body header {
+  font-size: 50px;
+  background-color: #450693;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-weight: bold;
+}
+
+.boots .boots_box {
+  width: 95%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
+  justify-items: center;
+}
+
+.boots .boots_box .boots_card {
+  background-color: #FA812F;
+  width: 250px;
+  height: 480px;
+  padding-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.boots .boots_box .boots_card:hover {
+  transform: scale(1.05);
+}
+
+.boots .boots_box .boots_card .boots_image img {
+  width: 200px;
+  height: auto;
+  border: 3px solid #333;
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.4);
+  border-radius: 8px;
+}
+
+.boots .boots_box .boots_card .item_info {
+  background-color: #FAB12F;
+  padding: 10px;
+}
+
+.boots .boots_box .boots_card .item_info h2 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.boots .boots_box .boots_card .item_info h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #450693;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin: 10px 0 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2f0469;
+}
+
+
+.cart-icon {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  z-index: 1000;
+}
+
+.cart-icon i {
+  font-size: 50px;
+  color: #450693;
+  transition: color 0.2s ease;
+}
+
+.cart-icon i:hover {
+  color: #FA812F;
+}
+
+@media (max-width: 1024px) {
+  .boots .boots_box {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .boots .boots_box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cart-icon i {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  body header {
+    font-size: 28px;
+    padding: 10px;
+  }
+
+  .boots .boots_box {
+    grid-template-columns: 1fr;
+  }
+
+  .boots .boots_box .boots_card {
+    width: 90%;
+    height: auto;
+  }
+
+  .boots .boots_box .boots_card .boots_image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .cart-icon i {
+    font-size: 35px;
+  }
+}

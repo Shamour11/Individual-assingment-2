@@ -1,0 +1,125 @@
+<!--Shamour Campbell 2408412-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styleboots.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>FOOTBALL BOOTS</title>
+</head>
+
+<body>
+    <header>BOOTS</header>
+
+    <section>
+        <div class="boots">
+            <div class="boots_box">
+            <div class="boots_card">
+                <div class="boots_image">
+                    <img src="blue boots.jpeg">
+                </div>
+                <div class="item_info">
+                    <h2>Blue Fire Football Cleats</h2>
+                    <h3>$15000.00</h3>
+                </div>
+                <button onclick="addtocart('Blue Fire Football Cleats', 15000)">ADD TO CART</button>
+            </div>
+            <div class="boots_card">
+                <div class="boots_image">
+                    <img src="black boots.jpeg">
+                </div>
+                <div class="item_info">
+                    <h2>Black Heart Football Cleats</h2>
+                    <h3>$15000.00</h3>
+                </div>
+                <button onclick="addtocart('Black Heart Football Cleats', 15000)">ADD TO CART</button>
+            </div>
+            <div class="boots_card">
+                <div class="boots_image">
+                    <img src="aqua boots.jpg">
+                </div>
+                <div class="item_info">
+                    <h2>Aqua Cleats</h2>
+                    <h3>$19000.00</h3>
+                </div>
+                <button onclick="addtocart('Aqua Cleats', 19000)">ADD TO CART</button>
+            </div>
+            <div class="boots_card">
+                <div class="boots_image">
+                    <img src="red boots.webp">
+                </div>
+                <div class="item_info">
+                    <h2>Flame Shot Cleats</h2>
+                    <h3>$15000.00</h3>
+                </div>
+                <button onclick="addtocart('Flame Shot Cleats', 15000)">ADD TO CART</button>
+            </div>
+            <div class="boots_card">
+                <div class="boots_image">
+                    <img src="green boots.avif">
+                </div>
+                <div class="item_info">
+                    <h2>Green Cleats</h2>
+                    <h3>$19000.00</h3>
+                </div>
+                <button onclick="addtocart('Green Cleats', 19000)">ADD TO CART</button>
+            </div>
+            <div class="boots_card">
+                <div class="boots_image">
+                    <img src="pink boots.jpg">
+                </div>
+                <div class="item_info">
+                    <h2>Pink Cleats</h2>
+                    <h3>$19000.00</h3>
+                </div>
+                <button onclick="addtocart('Pink Cleats', 19000)">ADD TO CART</button>
+            </div>
+            <div class="boots_card">
+                <div class="boots_image">
+                    <img src="green boots 2.jpg">
+                </div>
+                <div class="item_info">
+                    <h2>Green Fury Cleats</h2>
+                    <h3>$19000.00</h3>
+                </div>
+                <button onclick="addtocart('Green Fury Cleats', 19000)">ADD TO CART</button>
+            </div>
+            <div class="boots_card">
+                <div class="boots_image">
+                    <img src="yellow boots.webp">
+                </div>
+                <div class="item_info">
+                    <h2>Yellow Fury Boots</h2>
+                    <h3>$19000.00</h3>
+                </div>
+                <button onclick="addtocart('Yellow Fury Boots', 19000)">ADD TO CART</button>
+            </div>
+            
+            
+            </div>
+        </div>
+    </section>
+
+    <script>
+    function addtocart (name, price) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+     let item = cart.find(product => product.name === name);
+      if (item) {
+        item.quantity += 1;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(name + " added to cart!");
+    }
+</script>
+
+<a href="cart.html" class="cart-icon">
+    <i class="fa-solid fa-cart-shopping" ></i>
+</a>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!--Shamour Campbell 2408412-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="stylecricket-basketball.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>CRICKET/BASKETBALL</title>
+</head>
+
+<body>
+<header>CRICKET/BASKETBALL</header>
+
+<section>
+        <div class="cricket">
+            <div class="cricket_box">
+            <div class="cricket_card">
+                <div class="cricket_image">
+                    <img src="cricket ball.jpg">
+                </div>
+                <div class="item_info">
+                    <h2>Cricket Ball</h2>
+                    <h3>$2500.00</h3>
+                </div>
+                <button onclick="addtocart('Cricket Ball', 2500)">ADD TO CART</button>
+            </div>
+           <div class="cricket_card">
+                <div class="cricket_image">
+                    <img src="cricket bat.jpg">
+                </div>
+                <div class="item_info">
+                    <h2>Cricket Bat</h2>
+                    <h3>$5000.00</h3>
+                </div>
+                <button onclick="addtocart('Cricket Bat', 5000)">ADD TO CART</button>
+            </div>
+            <div class="cricket_card">
+                <div class="cricket_image">
+                    <img src="cricket glove.webp">
+                </div>
+                <div class="item_info">
+                    <h2>Cricket Glove 2.0</h2>
+                    <h3>$5000.00</h3>
+                </div>
+                <button onclick="addtocart('Cricket Glove 2.0', 5000)">ADD TO CART</button>
+            </div>
+           <div class="cricket_card">
+                <div class="cricket_image">
+                    <img src="cricket helmet.webp">
+                </div>
+                <div class="item_info">
+                    <h2>Cricket Helemet</h2>
+                    <h3>$10000.00</h3>
+                </div>
+                <button onclick="addtocart('Cricket Helemet', 10000)">ADD TO CART</button>
+            </div>
+           <div class="cricket_card">
+                <div class="cricket_image">
+                    <img src="basketball jersey.jpg">
+                </div>
+                <div class="item_info">
+                    <h2>Authentic Basketball Jersey (top)</h2>
+                    <h3>$8000.00</h3>
+                </div>
+                <button onclick="addtocart('Authentic Basketball Jersey (top)', 8000)">ADD TO CART</button>
+            </div>
+          <div class="cricket_card">
+                <div class="cricket_image">
+                    <img src="basketball shorts.jpg">
+                </div>
+                <div class="item_info">
+                    <h2>Authentic Basketball Jersey (shorts)</h2>
+                    <h3>$4000.00</h3>
+                </div>
+                <button onclick="addtocart('Authentic Basketball Jersey (shorts)', 4000)">ADD TO CART</button>
+            </div>
+            <div class="cricket_card">
+                <div class="cricket_image">
+                    <img src="basketball jersey full.jpg">
+                </div>
+                <div class="item_info">
+                    <h2>Authentic Basketball Jersey (full)</h2>
+                    <h3>$10000.00</h3>
+                </div>
+                <button onclick="addtocart('Authentic Basketball Jersey (full)', 10000)">ADD TO CART</button>
+            </div>
+            <div class="cricket_card">
+                <div class="cricket_image">
+                    <img src="basketball ball.jpg">
+                </div>
+                <div class="item_info">
+                    <h2>Basketball Ball (with pump)</h2>
+                    <h3>$12000.00</h3>
+                </div>
+                <button onclick="addtocart('Basketball Ball (with pump)', 12000)">ADD TO CART</button>
+            </div>
+            
+            </div>
+        </div>
+    </section>
+    
+<script>
+    function addtocart (name, price) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+     let item = cart.find(product => product.name === name);
+      if (item) {
+        item.quantity += 1;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(name + " added to cart!");
+    }
+</script>
+
+
+<a href="cart.html" class="cart-icon">
+    <i class="fa-solid fa-cart-shopping" ></i>
+</a>
+</body>
+</html>

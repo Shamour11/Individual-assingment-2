@@ -1,0 +1,140 @@
+<!--Shamour Campbell 2408412-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style2.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>FOOTY FIESTA</title>
+</head>
+
+<body>
+    <!--NAV BAR SECTION-->
+    <div class="main">
+            <div class="logo">
+                <h1>FOOTY FIESTA</h1>
+               <img src="football pic.png">
+            </div> <!--NAV BAR LINKS-->
+                <ul>
+                <li><a href="#SHOP">SHOP NOW</a></li>
+                <li><a href="aboutus.html">ABOUT US</a></li>
+                <li><a href="cart.html">CART</a></li>
+            </ul>
+            </div>
+        </div>
+
+<section class="info">
+    <h1>YOUR SOURCE FOR QUALITY SPORTS GEAR</h1>
+</section>
+<!--PRODUCT DISPLAY-->
+<section id="SHOP">
+    <div class="orders">
+        <!--GRID CONTAINER-->
+        <div class="order_box">
+            <!--PRODUCT CARD-->
+            <div class="orders_card">
+                <div class="orders_image">
+                    <img src="lfc pic.webp">
+                </div>
+                <div class="item_info">
+                    <h2>liverpool FC Jersey Top</h2>
+                    <h3>$5000.00</h3>
+                </div>
+                <!--ADD TO CART BUTTON-->
+                <button onclick="addtocart('liverpool FC Jersey Top', 5000)">ADD TO CART</button>
+            </div>
+        
+         
+            <div class="orders_card">
+                <div class="orders_image">
+                    <img src="black boots.jpeg">
+                </div>
+                <div class="item_info">
+                    <h2>Black leather boots</h2>
+                    <h3>$4000.00</h3>
+                </div>
+                <button onclick="addtocart('Black leather boots', 4000)">ADD TO CART</button>
+            </div>
+        
+         
+            <div class="orders_card">
+                <div class="orders_image">
+                    <img src="la liga ball.jpg">
+                </div>
+                <div class="item_info">
+                    <h2>La Liga Football</h2>
+                    <h3>$2000.00</h3>
+                </div>
+                <button onclick="addtocart('La Liga Football', 2000)">ADD TO CART</button>
+            </div>
+        
+         
+            <div class="orders_card">
+                <div class="orders_image">
+                    <img src="gaolkeeper gloves.webp">
+                </div>
+                <div class="item_info">
+                    <h2>Goalie Gloves</h2>
+                    <h3>$5000.00</h3>
+                </div>
+                <button onclick="addtocart('Goalie Gloves', 5000)">ADD TO CART</button>
+            </div>
+        </div>
+        <div class="box">
+            <div><i class="fa-solid fa-shirt"></i><a href="jersey.html">Jersey</a></div>
+            <div><i class="fa-solid fa-shoe-prints"></i></i><a href="boots.html">Football Boots</a></div>
+            <div><i class="fa-solid fa-mitten"></i><a href="gloves.html">Gloves</a></div>
+            <div><i class="fa-solid fa-basketball"></i><a href="cricket-basketball.html">Cricket/Basketbell</a></div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    // Function to add items to cart using localStorage
+    function addtocart (name, price) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Check if the item already exists in the cart
+     let item = cart.find(product => product.name === name);
+      if (item) {
+       // If item already in cart, increase quantity
+        item.quantity += 1;
+      } else {
+       // If not in cart, add new item with quantity 1
+        cart.push({ name, price, quantity: 1 });
+      }
+      // Save updated cart back to localStorage
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(name + " added to cart!");
+    }
+</script>
+
+<!--CART ICON-->
+<a href="cart.html" class="cart-icon">
+    <i class="fa-solid fa-cart-shopping" ></i>
+</a>
+
+
+</body>
+
+<!--FOOTER SECTION-->
+<footer>
+     <div class="footer_main">
+          <div class="footer_tag">
+            <h2>CONTACT</h2>
+            <p>(876)837-5646</p>
+            <p>shamourcampbell14@gmail.com</p>
+        </div>
+          <div class="footer_tag">
+            <h2>Socials</h2>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-tiktok"></i>
+        </div>
+    
+    </div>
+</footer>
+
+</html>

@@ -1,0 +1,173 @@
+<!--Shamour Campbell 2408412-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">    
+<title>YOUR CART</title>
+<style>
+  body{
+    background-color: #3B9797;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+
+ button {
+  background-color: #450693;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin: 10px 0 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+  
+  a{
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+  }
+
+  /* Table Styling */
+  table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 0 auto 20px; /* Center table */
+    background-color: #f8f8f8;
+  }
+
+  th, td {
+    padding: 12px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #450693;
+    color: white;
+  }
+
+  td {
+    background-color: #fff;
+  }
+
+  /* Responsive Table for Small Screens */
+  @media (max-width: 768px) {
+    table {
+      width: 100%;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      font-size: 14px;
+    }
+
+    a {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    body {
+      padding: 10px;
+    }
+
+    table {
+      font-size: 12px;
+    }
+
+    button {
+      font-size: 14px;
+      padding: 8px;
+      width: 100%;
+    }
+  }
+  
+</style>
+</head>
+
+
+
+<body>
+    <h1>Your Shopping Cart</h1>
+  <!--CART DISPLAY TABLE-->
+  <table border="1" width="80%">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Price ($)</th>
+        <th>Quantity</th>
+        <th>Sub-Total ($)</th>
+      </tr>
+    </thead>
+    <tbody id="cart-items"></tbody>
+    <tfoot id="cart-summary"></tfoot>
+  </table>
+  <!--BUTTONS ON CART PAGE / WITH NAV LINKS-->
+  <button><a href="mainpage.html">Continue Shopping</a></button>
+  <button onclick="clearCart()">CLEAR CART</button>
+  <button><a href="checkout2.html">CHECKOUT</a></button>
+  
+<!--JAVA SECTION-->
+<script>
+// Log to confirm script is running and check localStorage content
+console.log("displayCart function running");
+console.log(localStorage.getItem('cart'));
+
+// Function to display cart contents from localStorage
+function displayCart() {
+  // Get stored cart data or empty array if none
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  // Select table body and footer
+    let cartItems = document.getElementById('cart-items');
+    let summary = document.getElementById('cart-summary');
+    let subtotal = 0;
+
+    cartItems.innerHTML = ''; // Clear existing rows
+
+    // Loop through each cart item
+    cart.forEach(item => {
+        let itemTotal = item.price * item.quantity; // Calculate total
+        subtotal += itemTotal;
+
+        // Add a row for each item
+        cartItems.innerHTML += `
+            <tr>
+                <td>${item.name}</td>
+                <td>$${item.price.toFixed(2)}</td>
+                <td>${item.quantity}</td>
+                <td>$${itemTotal.toFixed(2)}</td>
+            </tr>
+        `;
+    });
+
+      // Display subtotal (grand total) in table footer
+    summary.innerHTML = `
+        <tr>
+            <td colspan="3" style="text-align:right; font-weight:bold;">Grand Total:</td>
+            <td>$${subtotal.toFixed(2)}</td>
+        </tr>
+    `;
+}
+
+// Run the displayCart function when the page loads
+displayCart();
+
+// Clear cart function
+function clearCart() {
+    localStorage.removeItem('cart'); // Remove cart data
+    document.getElementById('cart-items').innerHTML = ''; // Clear table body
+    document.getElementById('cart-summary').innerHTML = '';
+    alert('Cart emptied'); // Notify user
+}
+</script>
+
+<a href="cart.html" class="cart-icon">
+    <i class="fa-solid fa-cart-shopping" ></i>
+</a>
+
+</body>
+</html>
