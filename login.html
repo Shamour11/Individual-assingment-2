@@ -28,9 +28,10 @@
   }
 
    form {
+    max-width: 350px;      /* makes form centered and neat */
+    margin: auto;
     display: grid;
-    gap: 12px;
-    margin-bottom: 50px;
+    gap: 15px;
    }
 
    label {
@@ -42,19 +43,21 @@
   input[type="password"]
    {
     width: 100%;
-    padding: 8px;
+    padding: 6px;          
     border-radius: 6px;
     border: 1px solid #ccc;
+    font-size: 16px;
   }
 
   button {
+    width: 100%;
     background-color: #CD2C58;
     color: white;
     padding: 10px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 20px; 
+    font-size: 18px; 
   } 
 
   button:hover {
@@ -65,44 +68,39 @@
 
 <body>
 <header>
-    <h1>Login Page</h1>
-    <p>Enter details below to login.</p>
+    <h1>Registration Page</h1>
+    <p>Enter details below to register.</p>
 </header>
 
-<!--LOGIN FORM-->
-    <form id="login">
-        <label>Enter Username:</label>
-        <input type="text" id="login_username" required>
-        <label>Enter Password:</label>
-        <input type="password" id="login_password" required>
-        <button type="submit">LOGIN</button>
+<div class="registration">
+    <form id="register">
+        <label for="username">Enter Username:</label>
+        <input type="text" id="username" required>
+        <label for="password">Enter Password:</label>
+        <input type="password" id="password" required>
+        <button type="submit">REGISTER</button>
     </form>
+</div>
 
-<!--JAVA FUNCTIONALITY-->
 <script>
-   document.getElementById("login").addEventListener("submit", function(e){
-    e.preventDefault(); //PREVENTS THE FORM FROM REFRESHING THE PAGE
+    document.getElementById("register").addEventListener("submit", function(e){
+        e.preventDefault();
 
-    // GET VALUES ENTERED BY USER AND REMOVES EXTRA SPACES
-    const enteredUsername = document.getElementById("login_username").value.trim();
-    const enteredPassword = document.getElementById("login_password").value.trim();
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
 
-    // RETREIVES SAVED USER INFO FROM LOCAL STORAGE
-    const savedUser = JSON.parse(localStorage.getItem("UserRegistration"));
-
-    // CHECKS IF REGEISTERED USER EXISTS IN LOCAL STORAGE
-    if(savedUser){
-        //COMPARES ENTERED INFO WITH SAVED INFO
-        if(enteredUsername === savedUser.username && enteredPassword === savedUser.password){
-            alert("Login successful!");
-            window.location.href = "mainpage.html"; 
-        } else {
-            alert("Incorrect username or password!");
+        if(username && password){
+            const user = {username, password};
+            localStorage.setItem("UserRegistration", JSON.stringify(user));
+            alert("Registration Successful");
+            window.location.href = "index.html";
         }
-    } else {
-        alert("No user found. Please register first.");
-    }
-});
+        else{
+            alert("FILL OUT ALL FIELDS!!!");
+        }
+
+    });
 </script>
 </body>
 </html>
+
