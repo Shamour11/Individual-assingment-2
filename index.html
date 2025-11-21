@@ -10,38 +10,48 @@
 
 <body>
 <header>
-    <h1>Registration Page</h1>
-    <p>Enter details below to register.</p>
+    <h1>Login Page</h1>
+    <p>Enter details below to login.</p>
 </header>
 
-<div class="registration">
-    <form id="register">
-        <label for="username">Enter Username:</label>
-        <input type="text" id="username" required>
-        <label for="password">Enter Password:</label>
-        <input type="password" id="password" required>
-        <button type="submit">REGISTER</button>
+<!--LOGIN FORM-->
+    <form id="login">
+        <label>Enter Username:</label>
+        <input type="text" id="login_username" required>
+        <label>Enter Password:</label>
+        <input type="password" id="login_password" required>
+        <button type="submit">LOGIN</button>
+        <a href="login.html">
+        <button type="button">REGISTER</button>
+        </a>
     </form>
-</div>
 
+<!--JAVA FUNCTIONALITY-->
 <script>
-    document.getElementById("register").addEventListener("submit", function(e){
-        e.preventDefault();
+   document.getElementById("login").addEventListener("submit", function(e){
+    e.preventDefault(); //PREVENTS THE FORM FROM REFRESHING THE PAGE
 
-        const username = document.getElementById("username").value.trim();
-        const password = document.getElementById("password").value.trim();
+    // GET VALUES ENTERED BY USER AND REMOVES EXTRA SPACES
+    const enteredUsername = document.getElementById("login_username").value.trim();
+    const enteredPassword = document.getElementById("login_password").value.trim();
 
-        if(username && password){
-            const user = {username, password};
-            localStorage.setItem("UserRegistration", JSON.stringify(user));
-            alert("Registration Successful");
-            window.location.href = "login.html";
+    // RETREIVES SAVED USER INFO FROM LOCAL STORAGE
+    const savedUser = JSON.parse(localStorage.getItem("UserRegistration"));
+
+    // CHECKS IF REGEISTERED USER EXISTS IN LOCAL STORAGE
+    if(savedUser){
+        //COMPARES ENTERED INFO WITH SAVED INFO
+        if(enteredUsername === savedUser.username && enteredPassword === savedUser.password){
+            alert("Login successful!");
+            window.location.href = "mainpage.html"; 
+        } else {
+            alert("Incorrect username or password!");
         }
-        else{
-            alert("FILL OUT ALL FIELDS!!!");
-        }
-
-    });
+    } else {
+        alert("No user found. Please register first.");
+    }
+});
 </script>
 </body>
 </html>
+
